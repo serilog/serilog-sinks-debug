@@ -24,6 +24,11 @@
     <RootNamespace>Serilog</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <!-- This is required so that calls to System.Diagnostics.Debug aren't compiled out of the release binary. -->
+    <DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Serilog" Version="2.5.0" />
     <PackageReference Include="System.Diagnostics.Debug" Version="4.3.0" />

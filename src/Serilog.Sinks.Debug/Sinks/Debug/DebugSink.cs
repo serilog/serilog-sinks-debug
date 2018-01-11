@@ -34,7 +34,11 @@ namespace Serilog.Sinks.Debug
             using (var buffer = new StringWriter())
             {
                 _formatter.Format(logEvent, buffer);
+#if DEBUG_WRITE
                 System.Diagnostics.Debug.Write(buffer.ToString());
+#else
+                System.Diagnostics.Debug.WriteLine(buffer.ToString().Trim());
+#endif
             }
         }
     }

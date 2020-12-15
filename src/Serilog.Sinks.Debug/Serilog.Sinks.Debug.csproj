@@ -20,7 +20,7 @@
     <GenerateAssemblyFileVersionAttribute>true</GenerateAssemblyFileVersionAttribute>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!-- Don't reference the full NETStandard.Library -->
-    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+    <DisableImplicitFrameworkReferences Condition=" '$(TargetFramework)' == 'netstandard1.0' ">true</DisableImplicitFrameworkReferences>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <TreatSpecificWarningsAsErrors />
     <RootNamespace>Serilog</RootNamespace>
@@ -33,6 +33,9 @@
 
   <ItemGroup>
     <PackageReference Include="Serilog" Version="2.5.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.0' ">
     <PackageReference Include="System.Diagnostics.Debug" Version="4.3.0" />
   </ItemGroup>
 

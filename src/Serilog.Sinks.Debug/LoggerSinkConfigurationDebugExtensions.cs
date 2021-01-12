@@ -25,7 +25,7 @@ namespace Serilog
     /// <summary>
     /// Adds the WriteTo.Debug() extension method to <see cref="LoggerConfiguration"/>.
     /// </summary>
-    public static class ConsoleLoggerConfigurationExtensions
+    public static class LoggerSinkConfigurationDebugExtensions
     {
         const string DefaultDebugOutputTemplate = "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}";
 

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Description>A Serilog sink that writes log events to the debug output window.</Description>
-    <VersionPrefix>1.0.2</VersionPrefix>
+    <VersionPrefix>2.0.0</VersionPrefix>
     <Authors>Serilog Contributors</Authors>
     <TargetFrameworks>net45;net46;netstandard1.0;netstandard2.0</TargetFrameworks>
     <AssemblyName>Serilog.Sinks.Debug</AssemblyName>

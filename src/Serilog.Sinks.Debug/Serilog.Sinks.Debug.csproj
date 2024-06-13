@@ -4,7 +4,12 @@
     <Description>A Serilog sink that writes log events to the debug output window.</Description>
     <VersionPrefix>2.0.1</VersionPrefix>
     <Authors>Serilog Contributors</Authors>
-    <TargetFrameworks>net45;net46;netstandard1.0;netstandard2.0;netstandard2.1</TargetFrameworks>
+    <!-- .NET Framework version targeting is frozen at these two TFMs. -->
+    <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT'">net471;net462</TargetFrameworks>
+    <!-- Policy is to trim TFM-specific builds to `netstandard2.0`, `net6.0`,
+         all active LTS versions, and optionally the latest RTM version, when releasing new
+         major Serilog versions. -->
+    <TargetFrameworks>$(TargetFrameworks);net8.0;net6.0;netstandard2.0</TargetFrameworks>
     <AssemblyName>Serilog.Sinks.Debug</AssemblyName>
     <AssemblyOriginatorKeyFile>../../assets/Serilog.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
@@ -17,8 +22,6 @@
     <RepositoryUrl>https://github.com/serilog/serilog-sinks-debug</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <!-- Don't reference the full NETStandard.Library -->
-    <DisableImplicitFrameworkReferences Condition=" '$(TargetFramework)' == 'netstandard1.0' ">true</DisableImplicitFrameworkReferences>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <RootNamespace>Serilog</RootNamespace>
   </PropertyGroup>
@@ -32,14 +35,6 @@
     <PackageReference Include="Serilog" Version="2.10.0" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.0' ">
-    <PackageReference Include="System.Diagnostics.Debug" Version="4.3.0" />
-  </ItemGroup>
-
-  <PropertyGroup Condition=" '$(TargetFramework)' != 'netstandard1.0' ">
-    <DefineConstants>$(DefineConstants);DEBUG_WRITE</DefineConstants>
-  </PropertyGroup>
-  
   <ItemGroup>
     <None Include="..\..\assets\icon.png" Pack="true" Visible="false" PackagePath="" />
   </ItemGroup>

@@ -1,4 +1,4 @@
-# Serilog.Sinks.Debug [![Build status](https://ci.appveyor.com/api/projects/status/oufg4e51868oq4eu?svg=true)](https://ci.appveyor.com/project/serilog/serilog-sinks-debug) [![NuGet Version](http://img.shields.io/nuget/v/Serilog.Sinks.Debug.svg?style=flat)](https://www.nuget.org/packages/Serilog.Sinks.Debug/) [![Documentation](https://img.shields.io/badge/docs-wiki-yellow.svg)](https://github.com/serilog/serilog/wiki) [![Join the chat at https://gitter.im/serilog/serilog](https://img.shields.io/gitter/room/serilog/serilog.svg)](https://gitter.im/serilog/serilog) [![Help](https://img.shields.io/badge/stackoverflow-serilog-orange.svg)](http://stackoverflow.com/questions/tagged/serilog)
+# Serilog.Sinks.Debug [![Build status](https://ci.appveyor.com/api/projects/status/oufg4e51868oq4eu?svg=true)](https://ci.appveyor.com/project/serilog/serilog-sinks-debug) [![NuGet Version](http://img.shields.io/nuget/v/Serilog.Sinks.Debug.svg?style=flat)](https://www.nuget.org/packages/Serilog.Sinks.Debug/) [![Help](https://img.shields.io/badge/stackoverflow-serilog-orange.svg)](http://stackoverflow.com/questions/tagged/serilog)
 
 A Serilog sink that writes log events to the Visual Studio debug output window.
 
@@ -7,7 +7,7 @@ A Serilog sink that writes log events to the Visual Studio debug output window.
 To use the sink, first install the [NuGet package](https://nuget.org/packages/serilog.sinks.debug):
 
 ```powershell
-Install-Package Serilog.Sinks.Debug
+dotnet add package Serilog.Sinks.Debug
 ```
 
 Then enable the sink using `WriteTo.Debug()`:

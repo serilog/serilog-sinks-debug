@@ -20,7 +20,7 @@ using Serilog.Formatting;
 
 namespace Serilog.Sinks.Debug
 {
-    class DebugSink : ILogEventSink
+    sealed class DebugSink : ILogEventSink
     {
         readonly ITextFormatter _formatter;
 
@@ -34,11 +34,7 @@ namespace Serilog.Sinks.Debug
             using (var buffer = new StringWriter())
             {
                 _formatter.Format(logEvent, buffer);
-#if DEBUG_WRITE
                 System.Diagnostics.Debug.Write(buffer.ToString());
-#else
-                System.Diagnostics.Debug.WriteLine(buffer.ToString().Trim());
-#endif
             }
         }
     }

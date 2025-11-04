@@ -1,6 +1,6 @@
 # Serilog.Sinks.Debug [![Build status](https://ci.appveyor.com/api/projects/status/oufg4e51868oq4eu?svg=true)](https://ci.appveyor.com/project/serilog/serilog-sinks-debug) [![NuGet Version](http://img.shields.io/nuget/v/Serilog.Sinks.Debug.svg?style=flat)](https://www.nuget.org/packages/Serilog.Sinks.Debug/) [![Help](https://img.shields.io/badge/stackoverflow-serilog-orange.svg)](http://stackoverflow.com/questions/tagged/serilog)
 
-A Serilog sink that writes log events to the Visual Studio debug output window.
+A Serilog sink that writes log events to `System.Diagnostics.Debug` (i.e. the Visual Studio debug output window), in `DEBUG` builds only.
 
 ### Getting started
 

@@ -15,6 +15,7 @@ Then enable the sink using `WriteTo.Debug()`:
 ```csharp
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Debug()
+    .MinimumLevel.Debug()
     .CreateLogger();
     
 Log.Information("Hello, world!");
@@ -23,6 +24,10 @@ Log.Information("Hello, world!");
 Log events will be printed to the debug output:
 
 ![Debug Output](https://raw.githubusercontent.com/serilog/serilog-sinks-debug/dev/assets/Screenshot.png)
+
+The chaining of the `MinimumLevel.Debug()` call is required in order to log events of level `LogEventLevel.Debug`, as the default minimum level for a new `LoggerConfiguration` is `LogEventLevel.Information`.
+
+Note that if the chaining of this call is omitted, only events of `LogEventLevel.Information` and above will be logged.
 
 ### XML `<appSettings>` configuration
 
@@ -47,6 +52,7 @@ In your application's `App.config` or `Web.config` file, specify the console sin
   <appSettings>
     <add key="serilog:using:Debug" value="Serilog.Sinks.Debug" />
     <add key="serilog:write-to:Debug" />
+    <add key="serilog:minimum-level" value="Debug" />
 ```
 
 ### JSON `appsettings.json` configuration
@@ -74,7 +80,8 @@ In your `appsettings.json` file, under the `Serilog` node, :
 ```json
 {
   "Serilog": {
-    "WriteTo": ["Debug"]
+    "WriteTo": ["Debug"],
+    "MinimumLevel": "Debug"
   }
 }
 ```
